@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char text[100];
+    char character;
+    int count = 0;
+
+    printf("Enter some text:\n");
+    fgets(text, sizeof(text), stdin);
+
+    // Remove trailing newline character
+    text[strcspn(text, "\n")] = '\0';
+
+    // Prompt the user to enter the character to count
+    printf("Count which character?\n");
+    scanf(" %c", &character);
+
+    // Iterate through each character of the text
+    for (int i = 0; text[i] != '\0'; i++) {
+        if (text[i] == character) {
+            count++;
+        }
+    }
+
+    // Print the result
+    printf("'%c' appears %d time%s in \"%s\"\n", character, count, count == 1 ? "" : "s", text);
+
+    return 0;
+}
