@@ -1,0 +1,25 @@
+/*FOR n starting from 0 and continuing while n < X:
+    IF n > 4 THEN:
+        PRINT n and a newline
+    ELSE:
+        PRINT 9 - n and a newline
+    ENDIF
+ENDFOR */
+
+#include <stdio.h>
+int main (void)
+{
+    int n;
+    scanf("%d", &n);
+    printf("Enter a number X:\n");
+
+    for ( int i = 0; i < n; i++ ) {
+        if ( i > 4) {
+            printf("%d\n", i);
+        }
+        
+        else {
+            printf("%d\n", 9 - i);
+        }
+    }
+}
