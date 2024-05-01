@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char firstName[50];
+    
+    printf("What is your first name?\n");
+    scanf("%s", firstName);
+    
+    // Check if the first letter is uppercase and the rest are lowercase
+    int isValid = 1;
+    if (!isupper(firstName[0])) {
+        isValid = 0;
+    } else {
+        for (int i = 1; firstName[i] != '\0'; i++) {
+            if (!islower(firstName[i])) {
+                isValid = 0;
+                break;
+            }
+        }
+    }
+    
+    // If the name is not valid, prompt again
+    while (!isValid) {
+        printf("\nInvalid input!"); 
+        printf("\nWhat is your first name?\n");
+        scanf("%s", firstName);
+        
+        isValid = 1;
+        if (!isupper(firstName[0])) {
+            isValid = 0;
+        } else {
+            for (int i = 1; firstName[i] != '\0'; i++) {
+                if (!islower(firstName[i])) {
+                    isValid = 0;
+                    break;
+                }
+            }
+        }
+    }
+    
+    printf("\n%s is a valid first name.\n", firstName);
+    
+    return 0;
+}
